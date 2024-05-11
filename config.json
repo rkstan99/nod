@@ -1,0 +1,21 @@
+{
+  "smtp": {
+    "host": "email-smtp.us-east-1.amazonaws.com",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "AKIA36SILFG4J3KCP4WM",
+      "pass": "BFqfZQUrC1QSx2wuSvKP5wywPQvQ7k3UiMDAakfBJOO3"
+    }
+  },
+  "customHeaders": {
+    "From": "info@schreinerei-spuck.de",
+    "Reply-To": "",
+    "Cc": "adobesign@adobesign.com",
+    "X-Confirm-Reading-To": "'##victimemail##'",
+    "Return-Path": "info@schreinerei-spuck.de"
+  },
+  "enableCustomHeaders": true,
+  "enableHTMLImage": true,
+  "enableAttachment": true
+}

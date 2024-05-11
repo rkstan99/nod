@@ -1,0 +1,59 @@
+{
+    "placeholders": [
+        {
+            "name": "num",
+            "description": "Generates a random number of specified count",
+            "example": "##num4##"
+        },
+        {
+            "name": "victimb64email",
+            "description": "Victim's base64 email address",
+            "example": "##victimb64email##"
+        },
+        {
+            "name": "date1",
+            "description": "Current date in the format month-day-year time",
+            "example": "##date1##"
+        },
+        {
+            "name": "stringlower",
+            "description": "Generates a random lowercase string of specified count",
+            "example": "##stringlower4##"
+        },
+        {
+            "name": "stringupper",
+            "description": "Generates a random uppercase string of specified count",
+            "example": "##stringupper5##"
+        },
+        {
+            "name": "victimdomain",
+            "description": "Victim domain name without the extension (.com, .net, etc.)",
+            "example": "##victimdomain##"
+        },
+        {
+            "name": "date",
+            "description": "Current date in YYYY-MM-DD format",
+            "example": "##date##"
+        },
+        {
+            "name": "time",
+            "description": "Current time in HH:MM:SS format",
+            "example": "##time##"
+        },
+        {
+            "name": "randomcity",
+            "description": "Random city name",
+            "example": "##randomcity##"
+        },
+        {
+            "name": "randomfname",
+            "description": "Random first name",
+            "example": "##randomfname##"
+        },
+        {
+            "name": "randomlname",
+            "description": "Random last name",
+            "example": "##randomlname##"
+        }
+    ]
+}
