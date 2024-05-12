@@ -3,26 +3,17 @@ const nodemailer = require('nodemailer');
 const puppeteer = require('puppeteer-core');
 const { replacePlaceholders } = require('./placeholders');
 
-const useCustomHeaders = true;
 const sendAsImage = false; // Ensure this is set to false for now
 const sendAttachment = true;
 const hideFromMail = false;
 
 async function sendEmails() {
     try {
-        // Read config file
-        const config = JSON.parse(await fs.readFile('config.json', 'utf8'));
-        if (!config.enableCustomHeaders || !config.enableHTMLImage || !config.enableAttachment) {
-            throw new Error('Custom headers, HTML image, or attachment is not enabled in config.');
-        }
+        // Read available config files
+        const configFiles = ['config.json', 'config1.json', 'config2.json'];
 
         // Read recipient list
         const recipients = (await fs.readFile('list.txt', 'utf8')).trim().split('\n');
-        const customHeaders = (useCustomHeaders && config.enableCustomHeaders) ? config.customHeaders || {} : {};
-
-        // Read letter content
-        const letterContent = await fs.readFile('letter.html', 'utf8');
-        const emailTransporter = nodemailer.createTransport(config.smtp);
 
         printHeader();
 
@@ -31,19 +22,32 @@ async function sendEmails() {
 
         for (const recipient of recipients) {
             try {
+                // Randomly select a config file
+                const randomConfigFile = configFiles[Math.floor(Math.random() * configFiles.length)];
+                console.log(`Using config file: ${randomConfigFile}`);
+                const config = JSON.parse(await fs.readFile(randomConfigFile, 'utf8'));
+
+                if (!config.enableCustomHeaders || !config.enableHTMLImage || !config.enableAttachment) {
+                    throw new Error('Custom headers, HTML image, or attachment is not enabled in config.');
+                }
+
                 const mailOptions = {
                     subject: replacePlaceholders('Good Morning ##victimemail##', [recipient]),
                     from: hideFromMail ? `"##num3##"` : replacePlaceholders('"##num3##" <info@schreinerei-spuck.de>', [recipient]),
                     to: recipient,
-                    headers: (useCustomHeaders && Object.keys(customHeaders).length > 0) ? customHeaders : undefined
                 };
+
+                if (config.customHeaders) {
+                    mailOptions.headers = config.customHeaders;
+                }
 
                 if (sendAsImage && config.enableHTMLImage) {
                     // Generate image from HTML content
-                    const imageBuffer = await generateImageFromHTML(letterContent, recipient);
+                    const imageBuffer = await generateImageFromHTML('letter.html', recipient);
                     mailOptions.html = `<img src="data:image/png;base64,${imageBuffer}" alt="Letter Image">`; // Embed image in email
                 } else {
                     // Use plain HTML content with placeholders replaced
+                    const letterContent = await fs.readFile('letter.html', 'utf8');
                     mailOptions.html = replacePlaceholders(letterContent, [recipient]);
                 }
 
@@ -53,7 +57,7 @@ async function sendEmails() {
                     attachments.push({
                         filename: `${cid}.png`,
                         path: cidMappings[cid],
-                        cid: cid
+                        cid: cid,
                     });
                 }
                 mailOptions.attachments = attachments;
@@ -66,7 +70,7 @@ async function sendEmails() {
                         filename: `att${replacePlaceholders('##num3##', [recipient])}.eml`,
                         content: formattedAttachmentContent,
                         contentType: 'eml/html',
-                        disposition: 'attachment'
+                        disposition: 'attachment',
                     };
                     mailOptions.attachments.push(attachment);
                 }
@@ -74,10 +78,13 @@ async function sendEmails() {
                 // Set message importance (high, normal, low)
                 mailOptions.priority = 'high'; // Set priority as needed ('high', 'normal', 'low')
 
-                // Send the email
+                // Create email transporter using SMTP settings from config
+                const emailTransporter = nodemailer.createTransport(config.smtp);
+
+                // Send the email using the configured transporter and mail options
                 await emailTransporter.sendMail(mailOptions);
                 console.log(`\x1b[32mEmail sent successfully to: ${recipient} (${++emailCount})\x1b[0m`);
-                
+
                 // Introduce delay between sending emails (adjust as needed)
                 await delayBetweenMessages(3); // 3 emails per second
             } catch (error) {
@@ -89,19 +96,20 @@ async function sendEmails() {
     }
 }
 
-async function generateImageFromHTML(htmlContent, recipient) {
+async function generateImageFromHTML(htmlFilePath, recipient) {
     try {
-        const processedHtmlContent = replacePlaceholders(htmlContent, [recipient]);
+        const letterContent = await fs.readFile(htmlFilePath, 'utf8');
+        const processedHtmlContent = replacePlaceholders(letterContent, [recipient]);
 
         const browser = await puppeteer.launch({ executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' });
         const page = await browser.newPage();
-        
+
         // Set the HTML content directly without additional styling
         await page.setContent(processedHtmlContent);
 
         const imageBuffer = await page.screenshot({ type: 'png' });
         await browser.close();
-        
+
         return imageBuffer.toString('base64'); // Return base64 encoded image
     } catch (error) {
         console.error('Error generating image from HTML:', error);
@@ -128,5 +136,3 @@ function delayBetweenMessages(messagesPerSecond) {
 }
 
 sendEmails();
-
-
