@@ -1,7 +1,9 @@
+// Helper function to generate a random number with a specified number of digits
 function generateRandomNumber(count) {
     return Math.floor(Math.random() * Math.pow(10, count)).toString().padStart(count, '0');
 }
 
+// Helper function to generate a random string of specified length and type ('lower' or 'upper')
 function generateRandomString(count, type) {
     let chars;
     if (type === 'lower') {
@@ -16,6 +18,7 @@ function generateRandomString(count, type) {
     return randomString;
 }
 
+// Main function to replace placeholders in content based on recipient information
 function replacePlaceholders(content, recipient) {
     recipient = Array.isArray(recipient) ? recipient : [recipient];
 
@@ -25,14 +28,21 @@ function replacePlaceholders(content, recipient) {
     }
 
     recipient.forEach((email, index) => {
+        const domain = email.split('@')[1];
+        const domainParts = domain.split('.');
+        const name = email.split('@')[0]; // Extract name before '@'
         const placeholders = {
             '##date1##': new Date().toLocaleString('en-US', { timeZone: 'UTC' }),
             '##date##': new Date().toISOString(),
+            '##date2##': new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
             '##victimemail##': email,
-            '##victimdomain##': email.split('@')[1],
-            '##victimdomain1##': email.split('@')[1].split('.')[0].charAt(0).toUpperCase() + email.split('@')[1].split('.')[0].slice(1),
-            '##victimdomain2##': email.split('@')[1].split('.')[0].toUpperCase(),
-            '##victimdomainlogo##': email.split('@')[1] ? (email.split('@')[1].includes('microsoft.com') ? 'Microsoft Logo' : 'Path/URL to Default Logo') : 'Path/URL to Default Logo',
+            '##victimname##': name.charAt(0).toUpperCase() + name.slice(1), // Format name (capitalize first letter)
+            '##victimdomain##': domain,
+            '##victimdomain1##': domainParts[0].charAt(0).toUpperCase() + domainParts[0].slice(1),
+            '##victimdomain2##': domainParts[0].toUpperCase(),
+            '##victimdomain3##': domainParts[0].charAt(0).toUpperCase() + domainParts[0].slice(1) + '.' + domainParts[1].toUpperCase(),
+            '##victimdomain4##': domainParts[0].toLowerCase(),
+            '##victimdomainlogo##': (domain.includes('microsoft.com') ? 'Microsoft Logo' : 'Path/URL to Default Logo'),
             '##link##': 'https://youtube.com'
         };
 
